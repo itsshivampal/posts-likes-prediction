@@ -46,7 +46,9 @@ def get_country_enc(country):
     one_hot[int(country)] = 1
     return one_hot
 
-for i in range(training_data.shape[0]):
+print("Step 1 done")
+
+for i in range(5000):# range(training_data.shape[0]):
     training_data.at[i, "norm_views"] = normalise_views(training_data[["#views"]].iloc[i].values[0])
     training_data.at[i, "norm_comments"] = normalise_comments(training_data[["#comments"]].iloc[i].values[0])
     training_data.at[i, "norm_likes"] = normalise_likes(training_data[["#likes"]].iloc[i].values[0])
@@ -78,6 +80,11 @@ for i in range(training_data.shape[0]):
     training_data.at[i, "count13"] = country_val[12]
     training_data.at[i, "count14"] = country_val[13]
     training_data.at[i, "count15"] = country_val[14]
+	
+	if i%5000 == 0:
+		print(i)
+
+print("Step 2 done")
 
 # Feature Extraction
 user_list = list(training_data.user_id.unique())
@@ -109,8 +116,10 @@ for user in user_list:
     avg_comments = sum(comments)/len(comments)
     user_avg_data[user] = [avg_views, avg_comments]
 
+print("Step 3 start")
 
-for i in range(training_data.shape[0]):
+
+for i in range(5000):# range(training_data.shape[0]):
     training_data.at[i, 'user_avg_views'] = user_avg_data[training_data[["user_id"]].iloc[i].values[0]][0]
     training_data.at[i, 'user_avg_comments'] = user_avg_data[training_data[["user_id"]].iloc[i].values[0]][1]
 
@@ -120,7 +129,11 @@ for i in range(training_data.shape[0]):
     training_data.at[i, 'category_avg_views'] = category_avg_data[training_data[["category"]].iloc[i].values[0]][0]
     training_data.at[i, 'category_avg_comments'] = category_avg_data[training_data[["category"]].iloc[i].values[0]][1]
 
+	if i%5000 == 0:
+		print(i)
 
 
 # Save Final Data
 training_data.to_csv("data/processed_data.csv")
+
+print("All steps done")
