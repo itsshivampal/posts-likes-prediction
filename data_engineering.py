@@ -48,7 +48,7 @@ def get_country_enc(country):
 
 print("Step 1 done")
 
-for i in range(5000):# range(training_data.shape[0]):
+for i in range(training_data.shape[0]):
     training_data.at[i, "norm_views"] = normalise_views(training_data[["#views"]].iloc[i].values[0])
     training_data.at[i, "norm_comments"] = normalise_comments(training_data[["#comments"]].iloc[i].values[0])
     training_data.at[i, "norm_likes"] = normalise_likes(training_data[["#likes"]].iloc[i].values[0])
@@ -136,7 +136,7 @@ for user in user_list:
 print("Step 3 start")
 
 
-for i in range(5000):# range(training_data.shape[0]):
+for i in range(training_data.shape[0]):
     training_data.at[i, 'user_avg_views'] = user_avg_data[training_data[["user_id"]].iloc[i].values[0]][0]
     training_data.at[i, 'user_avg_comments'] = user_avg_data[training_data[["user_id"]].iloc[i].values[0]][1]
 
