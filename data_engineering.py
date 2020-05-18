@@ -80,9 +80,8 @@ for i in range(5000):# range(training_data.shape[0]):
     training_data.at[i, "count13"] = country_val[12]
     training_data.at[i, "count14"] = country_val[13]
     training_data.at[i, "count15"] = country_val[14]
-	
-	if i%5000 == 0:
-		print(i)
+
+    if i%5000 == 0: print(i)
 
 print("Step 2 done")
 
@@ -129,8 +128,7 @@ for i in range(5000):# range(training_data.shape[0]):
     training_data.at[i, 'category_avg_views'] = category_avg_data[training_data[["category"]].iloc[i].values[0]][0]
     training_data.at[i, 'category_avg_comments'] = category_avg_data[training_data[["category"]].iloc[i].values[0]][1]
 
-	if i%5000 == 0:
-		print(i)
+    if i%5000 == 0: print(i)
 
 
 # Save Final Data
