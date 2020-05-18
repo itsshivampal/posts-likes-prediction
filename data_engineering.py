@@ -93,8 +93,14 @@ for category in category_list:
     df = training_data[training_data['category'] == category]
     views = list(df['norm_views'].to_numpy())
     comments = list(df['norm_comments'].to_numpy())
-    avg_views = sum(views)/len(views)
-    avg_comments = sum(comments)/len(comments)
+    if len(views) > 0:
+        avg_views = sum(views)/len(views)
+    else:
+        avg_views = 0
+    if len(comments) > 0:
+        avg_comments = sum(comments)/len(comments)
+    else:
+        avg_comments = 0
     category_avg_data[category] = [avg_views, avg_comments]
 
 country_avg_data = {}
@@ -102,8 +108,14 @@ for country in country_list:
     df = training_data[training_data['country'] == country]
     views = list(df['norm_views'].to_numpy())
     comments = list(df['norm_comments'].to_numpy())
-    avg_views = sum(views)/len(views)
-    avg_comments = sum(comments)/len(comments)
+    if len(views) > 0:
+        avg_views = sum(views)/len(views)
+    else:
+        avg_views = 0
+    if len(comments) > 0:
+        avg_comments = sum(comments)/len(comments)
+    else:
+        avg_comments = 0
     country_avg_data[country] = [avg_views, avg_comments]
 
 user_avg_data = {}
