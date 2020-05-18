@@ -111,8 +111,14 @@ for user in user_list:
     df = training_data[training_data['user_id'] == user]
     views = list(df['norm_views'].to_numpy())
     comments = list(df['norm_comments'].to_numpy())
-    avg_views = sum(views)/len(views)
-    avg_comments = sum(comments)/len(comments)
+    if len(views) > 0:
+        avg_views = sum(views)/len(views)
+    else:
+        avg_views = 0
+    if len(comments) > 0
+        avg_comments = sum(comments)/len(comments)
+    else:
+        avg_comments = 0
     user_avg_data[user] = [avg_views, avg_comments]
 
 print("Step 3 start")
