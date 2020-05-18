@@ -115,7 +115,7 @@ for user in user_list:
         avg_views = sum(views)/len(views)
     else:
         avg_views = 0
-    if len(comments) > 0
+    if len(comments) > 0:
         avg_comments = sum(comments)/len(comments)
     else:
         avg_comments = 0
