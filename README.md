@@ -3,7 +3,6 @@ We have to predict no of likes on a post.<br>
 <b>Given</b> - Post Id, User Id, Category, Country, #Comments, #Views.<br>
 <b>Prediction</b> - #likes
 
-<br><br>
 All the data has been scrapped from social media website.
 
 ## Data
